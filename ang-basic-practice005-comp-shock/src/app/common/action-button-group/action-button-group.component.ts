@@ -23,6 +23,7 @@ export class ActionButtonGroupComponent implements OnInit {
     this.updateClick.emit(true);
   }
   onDeleteButtonClick(): void {
+    console.log("clicked");
     this.deleteClick.emit(true);
   }
 

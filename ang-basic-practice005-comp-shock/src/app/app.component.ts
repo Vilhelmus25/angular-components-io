@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from './model/user';
 import { UserService } from './service/user.service';
+import { UserListComponent } from './user-list/user-list.component';
 
 @Component({
   selector: 'app-root',
@@ -12,33 +13,20 @@ export class AppComponent {
   usersList: User[] = this.users.list;
   currentUser: User = new User();
 
-  constructor(private users: UserService) {
+  constructor(private users: UserService/* , private userSelect: UserListComponent */) {
     //console.log(this.usersList[0]);
-  }
-
-  selectUser(currentUser: User): void {
 
   }
-
-  updateUser(currentUser: User): void {
-
-
-    /* !!!!!!!!!      A user.service.ts-ben ezek már meg vannak írva, csak meg köll hívni inkább, hoppá !!!!!! */
-
-
-
-    /* const index = this.usersList.findIndex(item => item.id === currentUser.id);
-    this.usersList.splice(index, 1, currentUser);
-    this.users.updateLocalStorage(); */
+  select(currentUser: User): void {
+    currentUser = this.currentUser;
   }
 
-  removeUser(currentUser: User): void {
+  update(currentUser: User): void {
+    this.users.updateUser(currentUser);
+  }
 
-    /*  console.log("object");
- 
-     const index = this.usersList.findIndex(item => item.id === currentUser.id);
-     this.usersList.splice(index, 1);
-     this.users.updateLocalStorage(); */
+  remove(): void {
+    this.users.removeUser(this.currentUser);
   }
 
 }

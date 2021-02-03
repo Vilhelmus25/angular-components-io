@@ -34,15 +34,16 @@
 </nav>
 <div class="container">
   <div class="row">
-    <div class="col-8">
-      <app-data-list [dataList]="usersList" (updateClick)="updateUser(currentUser)"
-        (deleteClick)="removeUser(currentUser)">
-      </app-data-list>
-      <!--  <app-data-row></app-data-row> -->
-    </div>
-    <!--  <div class="col-4">
-      <app-user-detail [user]="currentUser" (delUser)="removeUser"></app-user-detail>
+    <div class="col-12 w-100">
+      <div class="col-8">
+        <app-data-list [dataList]="usersList" (selectClick)="select(currentUser)" (updateClick)="update(currentUser)"
+          (deleteClick)="remove()">
+        </app-data-list>
+      </div>
+      <div class="col-4">
+        <app-user-detail [user]="currentUser" (delUser)="remove()"></app-user-detail>
 
-    </div> -->
+      </div>
+    </div>
   </div>
 </div>

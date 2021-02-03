@@ -19,8 +19,7 @@ export class DataListComponent implements OnInit {
   @Output() updateClick: EventEmitter<User> = new EventEmitter();
   @Output() deleteClick: EventEmitter<User> = new EventEmitter();
 
-
-  row: User = new User();
+  dataRow: User = new User();     // ez egy üres sor lesz és ezt adja tovább, ezért töröl a végéről, stb.
   idHeader: string = 'id';
   nameHeader: string = 'name';
   emailHeader: string = 'email';
@@ -33,16 +32,17 @@ export class DataListComponent implements OnInit {
 
   ngOnInit(): void {
     //console.log(this.dataList[0]);
+
   }
 
   onSelectClicked(): void {
-    this.selectClick.emit(this.row);
+    this.selectClick.emit(this.dataRow);
   }
   onUpdateClicked(): void {
-    this.updateClick.emit(this.row);
+    this.updateClick.emit(this.dataRow);
   }
   onDeleteClicked(): void {
-    this.deleteClick.emit(this.row);
+    this.deleteClick.emit(this.dataRow);
   }
 
 }
