@@ -1,12 +1,15 @@
 <div class="row">
     <div class="col-12 mt-3 pt-1 pb-1 d-flex justify-content-around">
-        <span class="text-bold">id</span>
-        ...
+        <span class="text-bold">{{idHeader}}</span>
+        <span class="text-bold">{{nameHeader}}</span>
+        <span class="text-bold">{{emailHeader}}</span>
+        <span class="text-bold">{{addressHeader}}</span>
+        <span class="text-bold">{{activeHeader}}</span>
     </div>
 </div>
 <div class="row">
-    <div class="col-12 mt-1 data-list-row">
-        <app-data-row *ngFor="let row of dataList" (selectClick)="onSelectClicked()" (updateClick)="onUpdateClicked()"
+    <div class="col-12 mt-1 data-list-row " *ngFor="let dataRow of dataList">
+        <app-data-row [dataRow]="dataRow" (selectClick)="onSelectClicked()" (updateClick)="onUpdateClicked()"
             (deleteClick)="onDeleteClicked()">
         </app-data-row>
     </div>

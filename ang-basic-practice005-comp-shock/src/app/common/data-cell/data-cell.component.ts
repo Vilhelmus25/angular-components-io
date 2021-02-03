@@ -14,6 +14,7 @@ export class DataCellComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    //console.log(this.data[0], this.key);
   }
 
 }

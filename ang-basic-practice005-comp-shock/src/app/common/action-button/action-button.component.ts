@@ -19,7 +19,7 @@ export class ActionButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onUserCliced(): void {
+  onUserClicked(): void {
     this.clicked.emit(true);
   }
 }

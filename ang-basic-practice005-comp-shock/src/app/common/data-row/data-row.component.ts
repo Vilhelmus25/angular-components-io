@@ -10,26 +10,27 @@ export class DataRowComponent implements OnInit {
 
   @Input() dataRow: User = new User();
 
-  @Output() selectClick: EventEmitter<Boolean> = new EventEmitter();
-  @Output() updateClick: EventEmitter<Boolean> = new EventEmitter();
-  @Output() deleteClick: EventEmitter<Boolean> = new EventEmitter();
+  @Output() selectClick: EventEmitter<User> = new EventEmitter();
+  @Output() updateClick: EventEmitter<User> = new EventEmitter();
+  @Output() deleteClick: EventEmitter<User> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   onSelectClicked(): void {
-    this.selectClick.emit(true);
-    this.dataRow = new User();
+    this.selectClick.emit(this.dataRow);
+
   }
   onUpdateClicked(): void {
-    this.updateClick.emit(true);
-    this.dataRow = new User();
+    this.updateClick.emit(this.dataRow);
+
   }
   onDeleteClicked(): void {
-    this.deleteClick.emit(true);
-    this.dataRow = new User();
+    this.deleteClick.emit(this.dataRow);
+
   }
 
 }
