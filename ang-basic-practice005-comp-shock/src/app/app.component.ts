@@ -10,11 +10,11 @@ import { UserListComponent } from './user-list/user-list.component';
 })
 export class AppComponent {
   title = 'The good Angular programmer';
-  //@Input() userList =
+
   usersList: User[] = this.users.list;
   currentUser: User = new User();
 
-  constructor(private users: UserService/* , private userSelect: UserListComponent */) {
+  constructor(private users: UserService) {
     //console.log(this.usersList[0]);
 
   }
