@@ -32,16 +32,19 @@
     </form>
   </div>
 </nav>
-<div class="container">
-  <div class="row">
-    <div class="col-12 w-100">
+<div class="container d-flex flex-row justify-content-center">
+  <div class="row px-auto">
+    <div class="col-12 d-flex flex-row justify-content-center">
+
       <div class="col-8">
-        <app-data-list [dataList]="usersList" (selectClick)="select(currentUser)" (updateClick)="update(currentUser)"
-          (deleteClick)="remove()">
+        <app-data-list [dataList]="usersList" (selectClick)="select($event)" (updateClick)="update($event)"
+          (deleteClick)="remove($event)">
         </app-data-list>
+
+
       </div>
       <div class="col-4">
-        <app-user-detail [user]="currentUser" (delUser)="remove()"></app-user-detail>
+        <app-user-detail [user]="currentUser" (delUser)="remove($event)"></app-user-detail>
 
       </div>
     </div>

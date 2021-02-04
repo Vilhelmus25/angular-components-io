@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 mt-3 pt-1 pb-1 d-flex justify-content-around">
+    <div class="col-10 mt-3 pt-1 pb-1 d-flex justify-content-around">
         <span class="text-bold">{{idHeader}}</span>
         <span class="text-bold">{{nameHeader}}</span>
         <span class="text-bold">{{emailHeader}}</span>
@@ -9,8 +9,11 @@
 </div>
 <div class="row">
     <div class="col-12 mt-1 data-list-row " *ngFor="let dataRow of dataList">
-        <app-data-row [dataRow]="dataRow" (selectClick)="onSelectClicked()" (updateClick)="onUpdateClicked()"
-            (deleteClick)="onDeleteClicked()">
+        <app-data-row [dataRow]="dataRow" (selectClick)="onSelectClicked($event)"
+            (updateClick)="onUpdateClicked($event)" (deleteClick)="onDeleteClicked($event)">
+            <!-- !!!!!!!!!!!!!  FONTOS  !!!!!!!!!!!!!!!!!! -->
+            <!-- A $event egy általános cucc, a .ts-ben adom meg, hogy az mi lesz, lehet egy 'user: User' .
+                Egyszer már kapott egy dataRow-t ami egy User  A gomboknál meg a kattintás eseményét kell lekezelni, hogy van-e vagy nincs -->
         </app-data-row>
     </div>
 </div>

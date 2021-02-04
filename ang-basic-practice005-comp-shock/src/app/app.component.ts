@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from './model/user';
 import { UserService } from './service/user.service';
 import { UserListComponent } from './user-list/user-list.component';
@@ -10,6 +10,7 @@ import { UserListComponent } from './user-list/user-list.component';
 })
 export class AppComponent {
   title = 'The good Angular programmer';
+  //@Input() userList =
   usersList: User[] = this.users.list;
   currentUser: User = new User();
 
@@ -17,16 +18,17 @@ export class AppComponent {
     //console.log(this.usersList[0]);
 
   }
-  select(currentUser: User): void {
-    currentUser = this.currentUser;
+  select(user: User): void {
+    this.currentUser = user;
   }
 
-  update(currentUser: User): void {
-    this.users.updateUser(currentUser);
+  update(user: User): void {
+    this.users.updateUser(user);
   }
 
-  remove(): void {
-    this.users.removeUser(this.currentUser);
+  remove(user: User): void {
+    this.users.removeUser(user);
+
   }
 
 }

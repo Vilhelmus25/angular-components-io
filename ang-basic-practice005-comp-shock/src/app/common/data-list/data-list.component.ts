@@ -19,7 +19,7 @@ export class DataListComponent implements OnInit {
   @Output() updateClick: EventEmitter<User> = new EventEmitter();
   @Output() deleteClick: EventEmitter<User> = new EventEmitter();
 
-  dataRow: User = new User();     // ez egy üres sor lesz és ezt adja tovább, ezért töröl a végéről, stb.
+  //dataRow: User = new User();     // ez egy üres sor lesz és ezt adja tovább, ezért töröl a végéről, stb.
   idHeader: string = 'id';
   nameHeader: string = 'name';
   emailHeader: string = 'email';
@@ -35,14 +35,14 @@ export class DataListComponent implements OnInit {
 
   }
 
-  onSelectClicked(): void {
-    this.selectClick.emit(this.dataRow);
+  onSelectClicked(user: User): void {
+    this.selectClick.emit(user);
   }
-  onUpdateClicked(): void {
-    this.updateClick.emit(this.dataRow);
+  onUpdateClicked(user: User): void {
+    this.updateClick.emit(user);
   }
-  onDeleteClicked(): void {
-    this.deleteClick.emit(this.dataRow);
+  onDeleteClicked(user: User): void {
+    this.deleteClick.emit(user);
   }
 
 }
