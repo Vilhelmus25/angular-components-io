@@ -29,9 +29,7 @@ export class DataRowComponent implements OnInit {
 
   }
   onDeleteClicked(): void {
-    console.log(this.dataRow);
     this.deleteClick.emit(this.dataRow);
-
   }
 
 }
